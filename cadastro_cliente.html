@@ -64,25 +64,33 @@
     </nav>
 
     <div class="container my-5">
-        <h2 class="text-left">Login</h2>
-        <p class="text-left">Efetue seu login para acessar as demais funcionalidades do sistema</p>
-        <hr class="my-4">
-        <div class="login-container shadow rounded p-4 mx-auto">
-            <h2 class="text-center">Acesse sua conta</h2>
+        <div class="cadastrocliente-container shadow rounded p-4 mx-auto">
             <form>
                 <div class="form-group">
-                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+                    <label for="inputNome">Nome completo:</label>
+                    <input type="text" class="form-control" id="inputNome" aria-describedby="emailHelp"
+                        placeholder="e.g.: João da Silva">
                 </div>
                 <div class="form-group">
-                    <label for="password"><i class="fas fa-lock"></i> Senha:</label>
-                    <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
+                    <label for="inputEmail">Endereço de email:</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                        placeholder="e.g.: joaosilva@email.com">
                 </div>
-                <button type="submit" class="btn btn-warning btn-block text-white">Entrar</button>
+                <div class="form-group">
+                    <label for="inputTel">Telefone/Celular:</label>
+                    <input type="tel" class="form-control" id="inputTel" placeholder="e.g.: (XX)XXXXX-XXXX">
+                </div>
+                <div class="form-group">
+                    <label for="inputObs">Observações:</label>
+                    <textarea class="form-control" id="inputObs" rows="3"></textarea>
+                  </div>
+                <div class="container button-container">
+                    <button type="button" class="btn btn-secondary btn-block text-white">Cancelar</button>
+                    <button type="submit" class="btn btn-warning btn-block text-white">Cadastrar</button>
+                </div>
             </form>
         </div>
     </div>
-
 
     <footer class="footer mt-5">
         <div class="container">

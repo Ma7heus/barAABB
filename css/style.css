@@ -19,7 +19,7 @@ body {
 
 /* Estilos da barra de navegação */
 .navbar {
-    background-color: #540c78;
+    background-color: #38405c;
 }
 
 .navbar-brand {
@@ -56,7 +56,7 @@ body {
 
 /* Estilos do rodapé */
 .footer {
-    background-color: #540c78;
+    background-color: #38405c;
     color: white;
     height: 56px;
     display: flex;
@@ -99,12 +99,33 @@ body {
     padding: 8px;
     border: none;
     border-radius: 4px;
-    background-color: #ffc107;
     color: white;
     font-weight: bold;
     cursor: pointer;
 }
 
-.login-container button:hover {
-    background-color: #ffcd00;
+/* .login-container button:hover {
+    background-color: #011d79;
+} */
+
+/* Estilos específicos página de Cadastro de Cliente */
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.button-container .btn {
+    width: 100px; 
+    margin-left: 10px; 
+    align-self: flex-end;
+}
+
+.cadastrocliente-container {
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
