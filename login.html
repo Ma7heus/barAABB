@@ -3,65 +3,42 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Exemplo Bootstrap</title>
+    <title>barAABB</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .navbar {
-            background-color: #540c78;
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            color: white;
-        }
-
-        .navbar-nav .nav-link {
-            color: white;
-            transition: color 0.3s;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #ffdd00 !important;
-        }
-
-        .carousel-item img {
-            max-width: 50%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .footer {
-            background-color: #540c78;
-            color: white;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        body {
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
+            <a class="navbar-brand" href="index.html">barAABB</a>
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Clientes</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="clientesDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Clientes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="clientesDropdown">
+                        <a class="dropdown-item" href="#">Cadastrar Cliente</a>
+                        <a class="dropdown-item" href="#">Consultar</a>
+                        <a class="dropdown-item" href="#">Registrar fiado</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cadastrar</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="cadastrarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Cadastrar
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="cadastrarDropdown">
+                        <a class="dropdown-item" href="#">Produtos</a>
+                        <a class="dropdown-item" href="#">Categorias</a>
+                        <a class="dropdown-item" href="#">Usuários</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Sobre</a>
                 </li>
             </ul>
-            <a class="navbar-brand mx-auto" href="index.html">barAABB</a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="login.html">Login</a>
@@ -74,10 +51,10 @@
     </nav>
 
     <div class="container my-5">
-        <h2 class="text-left text-warning">Login</h2>
+        <h2 class="text-left text-warning login-title">Login</h2>
         <p class="text-left">Efetue seu login para acessar as demais funcionalidades do sistema</p>
-        <hr class="my-4" style="background-color: #e9ecef; height: 1px;">
-        <div class="login-container shadow rounded p-4 mx-auto" style="max-width: 400px;">
+        <hr class="my-4">
+        <div class="login-container shadow rounded p-4 mx-auto">
             <h2 class="text-center">Acesse sua conta</h2>
             <form>
                 <div class="form-group">
