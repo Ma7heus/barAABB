@@ -104,10 +104,6 @@ body {
     cursor: pointer;
 }
 
-/* .login-container button:hover {
-    background-color: #011d79;
-} */
-
 /* Estilos específicos página de Cadastro de Cliente */
 .button-container {
     display: flex;
@@ -131,10 +127,35 @@ body {
 }
 
 /* Estilos específicos página de Cadastro de Produtos */
+.produto-container {
+    max-width: 600px; 
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .f3 {
     gap: 5px;
 }
 
-.produto-container {
-    max-width: 700px;
+/* Estilos específicos página de Cadastro de Produtos */
+.categoria-container {
+    max-width: 500px; 
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos específicos página de Cadastro de Usuários */
+.usuario-container {
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

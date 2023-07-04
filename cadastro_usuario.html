@@ -64,12 +64,12 @@
     </nav>
 
     <div class="container my-5">
-        <div class="cadastrocliente-container shadow rounded p-4 mx-auto">
+        <div class="usuario-container shadow rounded p-4 mx-auto">
             <form>
+                <h2 class="text-center">Cadastro de Usuário</h2>
                 <div class="form-group">
                     <label for="inputNome">Nome completo:</label>
-                    <input type="text" class="form-control" id="inputNome" aria-describedby="emailHelp"
-                        placeholder="e.g.: João da Silva">
+                    <input type="text" class="form-control" id="inputNome" placeholder="e.g.: João da Silva">
                 </div>
                 <div class="form-group">
                     <label for="inputEmail">Endereço de email:</label>
@@ -77,13 +77,28 @@
                         placeholder="e.g.: joaosilva@email.com">
                 </div>
                 <div class="form-group">
-                    <label for="inputTel">Telefone/Celular:</label>
-                    <input type="tel" class="form-control" id="inputTel" placeholder="e.g.: (XX)XXXXX-XXXX">
+                    <label for="inputPassword">Senha:</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
                 </div>
-                <div class="form-group">
-                    <label for="inputObs">Observações:</label>
-                    <textarea class="form-control" id="inputObs" rows="3"></textarea>
-                  </div>
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">Tipo Usuário:</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
+                                value="opcao1" checked>
+                            <label class="form-check-label" for="gridRadios1">
+                                Vendedor
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
+                                value="opcao2">
+                            <label class="form-check-label" for="gridRadios2">
+                                Repositor
+                            </label>
+                        </div>
+                    </div>
+                </div>
                 <div class="container button-container">
                     <button type="button" class="btn btn-secondary btn-block text-white">Cancelar</button>
                     <button type="submit" class="btn btn-warning btn-block text-white">Cadastrar</button>

@@ -64,26 +64,21 @@
     </nav>
 
     <div class="container my-5">
-        <div class="cadastrocliente-container shadow rounded p-4 mx-auto">
+        <div class="categoria-container shadow rounded p-4 mx-auto">
             <form>
+                <h2 class="text-center">Cadastro de Categoria</h2>
                 <div class="form-group">
-                    <label for="inputNome">Nome completo:</label>
-                    <input type="text" class="form-control" id="inputNome" aria-describedby="emailHelp"
-                        placeholder="e.g.: João da Silva">
+                    <label for="inputCodCategoria">Código:</label>
+                    <input type="number" class="form-control" id="inputCodCategoria">
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail">Endereço de email:</label>
-                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
-                        placeholder="e.g.: joaosilva@email.com">
+                    <label for="inputNome">Descrição:</label>
+                    <input type="text" class="form-control" id="inputNome">
                 </div>
                 <div class="form-group">
-                    <label for="inputTel">Telefone/Celular:</label>
-                    <input type="tel" class="form-control" id="inputTel" placeholder="e.g.: (XX)XXXXX-XXXX">
+                    <label for="inputMargem">Percentual de Margem:</label>
+                    <input type="number" class="form-control" id="inputMargem">
                 </div>
-                <div class="form-group">
-                    <label for="inputObs">Observações:</label>
-                    <textarea class="form-control" id="inputObs" rows="3"></textarea>
-                  </div>
                 <div class="container button-container">
                     <button type="button" class="btn btn-secondary btn-block text-white">Cancelar</button>
                     <button type="submit" class="btn btn-warning btn-block text-white">Cadastrar</button>
