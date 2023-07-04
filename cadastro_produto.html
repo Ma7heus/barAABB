@@ -63,27 +63,35 @@
         </div>
     </nav>
 
-    <div class="container my-5">
+    <div class="container produto-container my-5">
         <div class="cadastrocliente-container shadow rounded p-4 mx-auto">
             <form>
-                <div class="form-group">
-                    <label for="inputNome">Nome completo:</label>
-                    <input type="text" class="form-control" id="inputNome" aria-describedby="emailHelp"
-                        placeholder="e.g.: João da Silva">
+                <div class="form-group flex-fill">
+                    <label for="inputNomeProduto">Nome do produto:</label>
+                    <input type="text" class="form-control" id="inputNomeProduto" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail">Endereço de email:</label>
-                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
-                        placeholder="e.g.: joaosilva@email.com">
+                    <label for="inputCodCategoria">Categoria:</label>
+                    <input type="number" class="form-control" id="inputCodCategoria" aria-describedby="emailHelp">
+                </div>
+                <div class="d-flex f3">
+                    <div class="flex-fill form-group">
+                        <label for="inputValCompra">Preço Compra:</label>
+                        <input type="number" class="form-control" id="inputValCompra">
+                    </div>
+                    <div class="flex-fill form-group">
+                        <label for="inputValVenda">Preço Venda:</label>
+                        <input type="number" class="form-control" id="inputValVenda">
+                    </div>
+                    <div class="flex-fill form-group">
+                        <label for="inputQtd">Quantidade disponível:</label>
+                        <input type="number" class="form-control" id="inputQtd">
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputTel">Telefone/Celular:</label>
-                    <input type="tel" class="form-control" id="inputTel" placeholder="e.g.: (XX)XXXXX-XXXX">
+                    <label for="inputUser">Usuário:</label>
+                    <input type="number" class="form-control" id="inputUser">
                 </div>
-                <div class="form-group">
-                    <label for="inputObs">Observações:</label>
-                    <textarea class="form-control" id="inputObs" rows="3"></textarea>
-                  </div>
                 <div class="container button-container">
                     <button type="button" class="btn btn-secondary btn-block text-white">Cancelar</button>
                     <button type="submit" class="btn btn-warning btn-block text-white">Cadastrar</button>
