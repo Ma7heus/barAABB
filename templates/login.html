@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>barAABB</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <body>
@@ -64,28 +64,25 @@
     </nav>
 
     <div class="container my-5">
-        <div class="categoria-container shadow rounded p-4 mx-auto">
+        <h2 class="text-left">Login</h2>
+        <p class="text-left">Efetue seu login para acessar as demais funcionalidades do sistema</p>
+        <hr class="my-4">
+        <div class="login-container shadow rounded p-4 mx-auto">
+            <h2 class="text-center">Acesse sua conta</h2>
             <form>
-                <h2 class="text-center">Cadastro de Categoria</h2>
                 <div class="form-group">
-                    <label for="inputCodCategoria">Código:</label>
-                    <input type="number" class="form-control" id="inputCodCategoria">
-                </div>
-                <div class="form-group">
-                    <label for="inputNome">Descrição:</label>
-                    <input type="text" class="form-control" id="inputNome">
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Digite seu email">
                 </div>
                 <div class="form-group">
-                    <label for="inputMargem">Percentual de Margem:</label>
-                    <input type="number" class="form-control" id="inputMargem">
+                    <label for="password"><i class="fas fa-lock"></i> Senha:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
                 </div>
-                <div class="container button-container">
-                    <button type="button" class="btn btn-secondary btn-block text-white">Cancelar</button>
-                    <button type="submit" class="btn btn-warning btn-block text-white">Cadastrar</button>
-                </div>
+                <button type="submit" class="btn btn-warning btn-block text-white">Entrar</button>
             </form>
         </div>
     </div>
+
 
     <footer class="footer mt-5">
         <div class="container">
