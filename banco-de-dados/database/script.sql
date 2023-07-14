@@ -1,0 +1,85 @@
+CREATE TABLE BARAABB_CATEGORIAPRODUTO (
+  idCategoriaProduto BIGINT PRIMARY KEY,
+  descricao TEXT,
+  percentualMargem DECIMAL,
+  dataCadastro TIMESTAMP
+);
+
+
+CREATE TABLE BARAABB_CLIENTE (
+  idCliente BIGINT PRIMARY KEY,
+  nome TEXT,
+  telefone TEXT,
+  email TEXT,
+  observacoes TEXT,
+  dataCadastro TIMESTAMP
+);
+
+CREATE TABLE BARAABB_CLIENTESINADIMPLENTES (
+  idClientesInadimplentes BIGINT PRIMARY KEY,
+  idCliente BIGINT REFERENCES BARAABB_CLIENTE(idCliente),
+  valorTotalComanda DECIMAL,
+  statusPagamanto TEXT,
+  dataCompra TIMESTAMP,
+  dataAcerto TIMESTAMP,
+  Observacao TEXT
+);
+
+CREATE TABLE BARAABB_LISTACOMPRA (
+  idListaCompra BIGINT PRIMARY KEY,
+  idUsuario BIGINT REFERENCES BARAABB_USUARIO(idUsuario)
+);
+
+CREATE TABLE BARAABB_LISTACOMPRAPRODUTO (
+  idListaCompraProduto BIGINT PRIMARY KEY,
+  idProduto BIGINT REFERENCES BARAABB_PRODUTO(idProduto),
+  idListaCompra BIGINT REFERENCES BARAABB_LISTACOMPRA(idListaCompra)
+);
+
+CREATE TABLE BARAABB_PRODUTO (
+  idProduto BIGINT PRIMARY KEY,
+  idCategoriaProduto BIGINT REFERENCES BARAABB_CATEGORIAPRODUTO(idCategoriaProduto),
+  descricao TEXT,
+  precoCompra DECIMAL,
+  precoVenda DECIMAL,
+  quantidadeEstoque BIGINT,
+  idUsuarioCadastro BIGINT REFERENCES BARAABB_USUARIO(idUsuario),
+  dataCadastro TIMESTAMP
+);
+
+CREATE TABLE BARAABB_TIPOUSUARIO (
+  idTipoUsuario BIGINT PRIMARY KEY,
+  descricao TEXT
+);
+
+
+CREATE TABLE BARAABB_USUARIO (
+  idUsuario BIGINT PRIMARY KEY,
+  senha TEXT,
+  email TEXT,
+  login TEXT,
+  idTipoUsuario BIGINT REFERENCES BARAABB_TIPOUSUARIO(idTipoUsuario)
+);
+
+CREATE TABLE BARAABB_VENDADIARIA (
+  idVendaDiaria BIGINT PRIMARY KEY,
+  idUsuario BIGINT REFERENCES BARAABB_USUARIO(idUsuario),
+  valorTotalBruto DECIMAL,
+  valorTotalLiquido DECIMAL,
+  dataCadastro TIMESTAMP
+);
+
+CREATE TABLE BARAABB_VENDADIAFORMARECEB (
+  idVendaDiariaFormaRecebimento BIGINT PRIMARY KEY,
+  formaPagamento TEXT,
+  valorRecebido DECIMAL,
+  idVendaDiaria BIGINT REFERENCES BARAABB_VENDADIARIA(idVendaDiaria)
+);
+
+CREATE TABLE BARAABB_VENDADIARIAPRODUTO (
+  idVendaDiariaProduto BIGINT PRIMARY KEY,
+  idProduto BIGINT REFERENCES BARAABB_PRODUTO(idProduto),
+  idVendaDiaria BIGINT REFERENCES BARAABB_VENDADIARIA(idVendaDiaria),
+  valorTotalVendido DECIMAL,
+  quantidadeTotalVendida BIGINT
+);
