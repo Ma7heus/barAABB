@@ -209,17 +209,17 @@ font-weight: bold;
     gap: 15px;
 }
 
+.edit-delete-container {  
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .btn-group {
     display: flex;
     justify-content: space-around;
     align-items: center;
     gap: 10px;
-}
-
-.edit-delete-container {   
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
 }
 
 .edit-delete-container .btn {
@@ -229,4 +229,18 @@ font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Estilos específicos página de Vendas */
+.formvenda-container {
+    max-width: 500px; 
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.listaprod-container { 
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
 }

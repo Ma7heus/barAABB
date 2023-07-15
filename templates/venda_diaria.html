@@ -30,7 +30,7 @@
                         Cadastrar
                     </a>
                     <div class="dropdown-menu" aria-labelledby="cadastrarDropdown">
-                        <a class="dropdown-item" href="consulta_produtoss.html">Produtos</a>
+                        <a class="dropdown-item" href="consulta_produtos.html">Produtos</a>
                         <a class="dropdown-item" href="consulta_categoria.html">Categorias</a>
                         <a class="dropdown-item" href="cadastro_usuario.html">Usuários</a>
                     </div>
@@ -62,6 +62,72 @@
             </ul>
         </div>
     </nav>
+
+    <div class="container-fluid my-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container formvenda-container shadow rounded p-4 mx-auto">
+                    <form>
+                        <div class="form-group">
+                            <label for="cliente">Cliente:</label>
+                            <select class="form-control" id="cliente">
+                                <option>Cliente 1</option>
+                                <option>Cliente 2</option>
+                                <option>Cliente 3</option>
+                                <!-- Adicione aqui a lista de clientes -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="usuario">Usuário:</label>
+                            <select class="form-control" id="usuario">
+                                <option>Vendedor 1</option>
+                                <option>Vendedor 2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="valor-total">Valor Total:</label>
+                            <p id="valor-total"><strong>R$ 500,00</strong></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="container listaprod-container shadow rounded p-4 mx-auto">
+                    <form>
+                        <div class="form-group">
+                            <label for="produto">Produto:</label>
+                            <select class="form-control" id="produto">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantidade">Quantidade:</label>
+                            <input type="number" class="form-control" id="quantidade">
+                        </div>
+                        <button type="submit" class="btn btn-warning text-white">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-3 ml-auto">
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>TOTAL:</strong></li>
+                    <li class="list-group-item">Coca-cola lata ..................................... x1</li>
+                    <li class="list-group-item">Porção Batata-frita ............................ x2</li>
+                    <li class="list-group-item">Cerveja long-neck ............................. x4</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row my-4">
+            <div class="col-md-12 text-right">
+                <button class="btn btn-warning text-white">Registrar</button>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer mt-5">
         <div class="container">
