@@ -64,24 +64,44 @@
     </nav>
 
     <div class="container my-5">
-        <div class="categoria-container shadow rounded p-4 mx-auto">
+        <div class="usuario-container shadow rounded p-4 mx-auto">
             <form>
-                <h2 class="text-center">Cadastro de Categoria</h2>
+                <h2 class="text-center">Criar nova conta</h2>
                 <div class="form-group">
-                    <label for="inputCodCategoria">Código:</label>
-                    <input type="number" class="form-control" id="inputCodCategoria">
+                    <label for="inputNome">Nome completo:</label>
+                    <input type="text" class="form-control" id="inputNome" placeholder="e.g.: João da Silva">
                 </div>
                 <div class="form-group">
-                    <label for="inputNome">Descrição:</label>
-                    <input type="text" class="form-control" id="inputNome">
+                    <label for="inputEmail">Endereço de email:</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                        placeholder="e.g.: joaosilva@email.com">
                 </div>
                 <div class="form-group">
-                    <label for="inputMargem">Percentual de Margem:</label>
-                    <input type="number" class="form-control" id="inputMargem">
+                    <label for="inputPassword">Senha:</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
                 </div>
-                <div class="container button-container">
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">Tipo Usuário:</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
+                                value="opcao1" checked>
+                            <label class="form-check-label" for="gridRadios1">
+                                Vendedor
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
+                                value="opcao2">
+                            <label class="form-check-label" for="gridRadios2">
+                                Repositor
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="container button-container-novo">
                     <button type="button" class="btn btn-secondary btn-block text-white">Cancelar</button>
-                    <button type="submit" class="btn btn-warning btn-block text-white">Cadastrar</button>
+                    <button type="submit" class="btn btn-warning btn-block text-white">Criar Conta</button>
                 </div>
             </form>
         </div>
