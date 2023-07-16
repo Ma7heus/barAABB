@@ -64,25 +64,48 @@
     </nav>
 
     <div class="container my-5">
-        <h2 class="text-left">Login</h2>
-        <p class="text-left">Efetue seu login para acessar as demais funcionalidades do sistema</p>
-        <hr class="my-4">
-        <div class="login-container shadow rounded p-4 mx-auto">
-            <h2 class="text-center">Acesse sua conta</h2>
+        <div class="usuario-container shadow rounded p-4 mx-auto">
             <form>
+                <h2 class="text-center">Criar nova conta</h2>
                 <div class="form-group">
-                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+                    <label for="inputNome">Nome completo:</label>
+                    <input type="text" class="form-control" id="inputNome" placeholder="e.g.: João da Silva">
                 </div>
                 <div class="form-group">
-                    <label for="password"><i class="fas fa-lock"></i> Senha:</label>
-                    <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
+                    <label for="inputEmail">Endereço de email:</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                        placeholder="e.g.: joaosilva@email.com">
                 </div>
-                <button type="submit" class="btn btn-warning btn-block text-white">Entrar</button>
+                <div class="form-group">
+                    <label for="inputPassword">Senha:</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+                </div>
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">Tipo Usuário:</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
+                                value="opcao1" checked>
+                            <label class="form-check-label" for="gridRadios1">
+                                Vendedor
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
+                                value="opcao2">
+                            <label class="form-check-label" for="gridRadios2">
+                                Repositor
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="container button-container-novo">
+                    <button type="button" class="btn btn-secondary btn-block text-white">Cancelar</button>
+                    <button type="submit" class="btn btn-warning btn-block text-white">Criar Conta</button>
+                </div>
             </form>
         </div>
     </div>
-
 
     <footer class="footer mt-5">
         <div class="container">
