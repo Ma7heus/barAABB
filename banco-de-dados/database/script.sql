@@ -1,5 +1,4 @@
 CREATE DATABASE BARAABB;
-USE BARAABB;
 
 CREATE TABLE BARAABB_CATEGORIAPRODUTO (
   idCategoriaProduto BIGINT NOT NULL,
@@ -106,3 +105,32 @@ CREATE TABLE BARAABB_VENDADIARIAPRODUTO(
   CONSTRAINT FK_VENDADIARIAPRODUTO_PRODUTO FOREIGN KEY (produto) REFERENCES BARAABB_PRODUTO (idProduto),
   CONSTRAINT FK_VENDADIARIAPRODUTO_VENDADIARIA FOREIGN KEY (vendaDiaria) REFERENCES BARAABB_VENDADIARIA (idVendaDiaria)
 );
+ 
+
+-- sequence (autoincrement) para os IDs das tabelas (esqueci de fazer antes)
+
+-- criação das sequence
+CREATE SEQUENCE seq_categoria_produto START 1;
+CREATE SEQUENCE seq_cliente START 1;
+CREATE SEQUENCE seq_clientes_inadimplentes START 1;
+CREATE SEQUENCE seq_tipo_usuario START 1;
+CREATE SEQUENCE seq_usuario START 1;
+CREATE SEQUENCE seq_lista_compra START 1;
+CREATE SEQUENCE seq_produto START 1;
+CREATE SEQUENCE seq_lista_compra_produto START 1;
+CREATE SEQUENCE seq_venda_diaria START 1;
+CREATE SEQUENCE seq_venda_diaria_forma_receb START 1;
+CREATE SEQUENCE seq_venda_diaria_produto START 1;
+
+-- alteração das tabelas para associar as sequence nas colunas de chave primária
+ALTER TABLE BARAABB_CATEGORIAPRODUTO ALTER COLUMN idCategoriaProduto SET DEFAULT nextval('seq_categoria_produto');
+ALTER TABLE BARAABB_CLIENTE ALTER COLUMN idCliente SET DEFAULT nextval('seq_cliente');
+ALTER TABLE BARAABB_CLIENTESINADIMPLENTES ALTER COLUMN idClientesInadimplentes SET DEFAULT nextval('seq_clientes_inadimplentes');
+ALTER TABLE BARAABB_TIPOUSUARIO ALTER COLUMN idTipoUsuario SET DEFAULT nextval('seq_tipo_usuario');
+ALTER TABLE BARAABB_USUARIO ALTER COLUMN idUsuario SET DEFAULT nextval('seq_usuario');
+ALTER TABLE BARAABB_LISTACOMPRA ALTER COLUMN idListaCompra SET DEFAULT nextval('seq_lista_compra');
+ALTER TABLE BARAABB_PRODUTO ALTER COLUMN idProduto SET DEFAULT nextval('seq_produto');
+ALTER TABLE BARAABB_LISTACOMPRAPRODUTO ALTER COLUMN idListaCompraProduto SET DEFAULT nextval('seq_lista_compra_produto');
+ALTER TABLE BARAABB_VENDADIARIA ALTER COLUMN idVendaDiaria SET DEFAULT nextval('seq_venda_diaria');
+ALTER TABLE BARAABB_VENDADIARIAFORMARECEB ALTER COLUMN idVendaDiariaFormaRecebimento SET DEFAULT nextval('seq_venda_diaria_forma_receb');
+ALTER TABLE BARAABB_VENDADIARIAPRODUTO ALTER COLUMN idVendaDiariaProduto SET DEFAULT nextval('seq_venda_diaria_produto');
