@@ -1,6 +1,6 @@
 
 // Função para fazer uma requisição GET
-export function getData(url) {
+window.getData = async function(url) {
     fetch(url)
       .then(response => response.json())
       .then(data => {
@@ -9,10 +9,10 @@ export function getData(url) {
       .catch(error => {
         console.error('Erro:', error);
       });
-  }
+  };
   
   // Função para fazer uma requisição POST
-  export function postData(url, data) {
+  function postData(url, data) {
     fetch(url, {
       method: 'POST',
       headers: {
