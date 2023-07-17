@@ -10,7 +10,7 @@ INSERT INTO BARAABB_CLIENTE (nome, telefone, email, observacoes, dataCadastro)
 VALUES
   ('João da Silva', '(11) 9999-8888', 'joao.silva@example.com', 'Cliente VIP', CURRENT_DATE),
   ('Maria Souza', '(21) 9876-5432', 'maria.souza@example.com', NULL, CURRENT_DATE),
-  ('Pedro Santos', '(81) 3333-1111', 'pedro.santos@example.com', NULL, CURRENT_DATE);
+  ('Pedro Santos', '(81) 3333-1111', 'pedro.santos@example.com', NULL, CURRENT_DATE),
   ('Ana Oliveira', '(47) 5555-2222', 'ana.oliveira@example.com', NULL, CURRENT_DATE),
   ('Carlos Ferreira', '(34) 7777-9999', 'carlos.ferreira@example.com', 'Cliente preferencial', CURRENT_DATE),
   ('Mariana Costa', '(81) 8888-5555', 'mariana.costa@example.com', 'Cliente novo', CURRENT_DATE),
@@ -40,7 +40,7 @@ INSERT INTO BARAABB_USUARIO (senha, email, login, tipoUsuario)
 VALUES
   ('senha_admin123', 'admin@example.com', 'admin', 1),
   ('senha_vendedor456', 'vendedor1@example.com', 'vendedor1', 2),
-  ('senha_vendedor789', 'vendedor2@example.com', 'vendedor2', 2);
+  ('senha_vendedor789', 'vendedor2@example.com', 'vendedor2', 2),
   ('senha_repositor123', 'repositor1@example.com', 'repositor1', 3);
 
 -- Populando a tabela BARAABB_LISTACOMPRA
@@ -82,21 +82,28 @@ VALUES
   (3, 90.00, 60.00, CURRENT_DATE),
   (2, 40.00, 10.00, CURRENT_DATE),
   (2, 110.00, 80.00, CURRENT_DATE),
-  (3, 95.00, 65.00, CURRENT_DATE),
+  (3, 95.00, 65.00, CURRENT_DATE);
+
+INSERT INTO BARAABB_FORMAPAGAMENTO (descricao) VALUES
+  ('Dinheiro'),
+  ('Cartão de crédito'),
+  ('Cartão de débito'),
+  ('Pix'),
+  ('Boleto bancário');
 
 -- Populando a tabela BARAABB_VENDADIARIAFORMARECEB
 INSERT INTO BARAABB_VENDADIARIAFORMARECEB (formaPagamento, valorRecebido, vendaDiaria)
 VALUES
-  ('Dinheiro', 100.00, 1),
-  ('Cartão de crédito', 200.00, 2),
-  ('Cartão de débito', 150.00, 3),
-  ('Cartão de débito', 50.00, 4),
-  ('Dinheiro', 100.00, 5),
-  ('Cartão de crédito', 75.00, 6),
-  ('Dinheiro', 30.00, 7),
-  ('Pix', 90.00, 8),
-  ('Boleto Bancário', 100.00, 9),
-  ('Dinheiro', 20.00, 10);
+  (1, 100.00, 1),
+  (2, 200.00, 2),
+  (3, 150.00, 3),
+  (3, 50.00, 4),
+  (1, 100.00, 5),
+  (2, 75.00, 6),
+  (1, 30.00, 7),
+  (4, 90.00, 8),
+  (5, 100.00, 9),
+  (1, 20.00, 10);
 
 -- Populando a tabela BARAABB_VENDADIARIAPRODUTO 10
 INSERT INTO BARAABB_VENDADIARIAPRODUTO (produto, vendaDiaria, valorTotalVendido, quantidadeTotalVendida)
