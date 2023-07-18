@@ -95,14 +95,14 @@ function cadastrar() {
   const data = {
     descricao: descricao,
     categoria: categoria,
-    preco_compra: preco_compra,
-    preco_venda: preco_venda,
-    quantidade_estoque: quantidade_estoque,
+    precoCompra: preco_compra,
+    precoVenda: preco_venda,
+    quantidadeEstoque: quantidade_estoque,
     usuario: usuario
   };
 
   if (id.length !== 0) {
-    data.idProduto = id,
+      data.idProduto = id,
       update(data);
   } else {
     data.datacadastro = new Date();
@@ -135,11 +135,10 @@ async function popularFormularioParaEditar(ID) {
 function setUpDados() {
   console.log('SETANDO DADOS');
 
-
   // var teste = buscarCategorias('http://localhost:8090/baraabbAPI/api/v1/categoriaproduto')
   // console.log(teste);
 
-  var categorias = ['1', '2', '3'];
+  var categorias = ['Categoria 1', 'Categoria 2', 'Categoria 3'];
 
   console.log(categorias);
   // Obtém uma referência ao elemento select
