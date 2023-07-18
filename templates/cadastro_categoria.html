@@ -68,10 +68,6 @@
             <form>
                 <h2 class="text-center">Cadastro de Categoria</h2>
                 <div class="form-group">
-                    <label for="inputCodCategoria">Código:</label>
-                    <input type="number" class="form-control" id="inputCodCategoria">
-                </div>
-                <div class="form-group">
                     <label for="inputNome">Descrição:</label>
                     <input type="text" class="form-control" id="inputNome">
                 </div>
@@ -80,8 +76,10 @@
                     <input type="number" class="form-control" id="inputMargem">
                 </div>
                 <div class="container button-container">
-                    <button type="button" class="btn btn-secondary btn-block text-white">Cancelar</button>
-                    <button type="submit" class="btn btn-warning btn-block text-white">Cadastrar</button>
+                    <button type="button" class="btn btn-secondary btn-block text-white"
+                        onclick="window.location.href='categoria.html'">Cancelar</button>
+                    <button type="submit" class="btn btn-warning btn-block text-white"
+                        onclick="cadastrar()">Cadastrar</button>
                 </div>
             </form>
         </div>
@@ -98,6 +96,18 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="categoriaproduto.controller.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obter o ID da Categoria da barra de endereço do URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const idCategoria = urlParams.get('idCategoria');
+
+            if (idCategoria) {
+                popularFormularioParaEditar(idCategoria);
+            }
+        });
+    </script>
 </body>
 
 </html>

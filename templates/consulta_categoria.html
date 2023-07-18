@@ -88,7 +88,7 @@
     </div>
 
     <div class="container">
-        <table class="table table-hover table-bordered table-striped">
+        <table id="table_categorias" class="table table-hover table-bordered table-striped">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -97,71 +97,7 @@
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Bebidas não-alcoólicas</td>
-                    <td>15%</td>
-                    <td>
-                        <div class="container edit-delete-container">
-                            <div class="btn-group">
-                                <button type="submit" class="btn btn-info btn-sm text-white">
-                                    <span class="material-symbols-outlined">
-                                        edit
-                                    </span>
-                                </button>
-                                <button type="submit" class="btn btn-danger btn-sm text-white">
-                                    <span class="material-symbols-outlined">
-                                        delete
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Bebidas alcoólicas</td>
-                    <td>30%</td>
-                    <td>
-                        <div class="container edit-delete-container">
-                            <div class="btn-group">
-                                <button type="submit" class="btn btn-info btn-sm text-white">
-                                    <span class="material-symbols-outlined">
-                                        edit
-                                    </span>
-                                </button>
-                                <button type="submit" class="btn btn-danger btn-sm text-white">
-                                    <span class="material-symbols-outlined">
-                                        delete
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Comidas</td>
-                    <td>20%</td>
-                    <td>
-                        <div class="container edit-delete-container">
-                            <div class="btn-group">
-                                <button type="submit" class="btn btn-info btn-sm text-white">
-                                    <span class="material-symbols-outlined">
-                                        edit
-                                    </span>
-                                </button>
-                                <button type="submit" class="btn btn-danger btn-sm text-white">
-                                    <span class="material-symbols-outlined">
-                                        delete
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
+            <tbody></tbody>
         </table>
     </div>
 
@@ -176,6 +112,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="categoriaproduto.controller.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            popularTabelaCategorias();
+        });
+    </script>
 </body>
 
 </html>

@@ -100,80 +100,7 @@
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Coca-cola lata 275ml</td>
-                    <td>Bebida</td>
-                    <td>R$ 1,50</td>
-                    <td>R$ 3,50</td>
-                    <td>100</td>
-                    <td>
-                        <div class="container edit-delete-container">
-                            <div class="btn-group">
-                                <button type="submit" class="btn btn-info btn-sm text-white">
-                                    <span class="material-symbols-outlined">
-                                        edit
-                                    </span>
-                                </button>
-                                <button type="submit" class="btn btn-danger btn-sm text-white">
-                                    <span class="material-symbols-outlined">
-                                        delete
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Coca-cola lata 350ml</td>
-                    <td>Bebida</td>
-                    <td>R$ 2,00</td>
-                    <td>R$ 5,00</td>
-                    <td>123</td>
-                    <td>
-                        <div class="container edit-delete-container">
-                            <div class="btn-group">
-                                <button type="submit" class="btn btn-info btn-sm text-white">
-                                    <span class="material-symbols-outlined">
-                                        edit
-                                    </span>
-                                </button>
-                                <button type="submit" class="btn btn-danger btn-sm text-white">
-                                    <span class="material-symbols-outlined">
-                                        delete
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Coca-cola 600ml</td>
-                    <td>Bebida</td>
-                    <td>R$ 5,00</td>
-                    <td>R$ 9,00</td>
-                    <td>57</td>
-                    <td>
-                        <div class="container edit-delete-container">
-                            <div class="btn-group">
-                                <button type="submit" class="btn btn-info btn-sm text-white">
-                                    <span class="material-symbols-outlined">
-                                        edit
-                                    </span>
-                                </button>
-                                <button type="submit" class="btn btn-danger btn-sm text-white">
-                                    <span class="material-symbols-outlined">
-                                        delete
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
+            <tbody></tbody>
         </table>
     </div>
 
@@ -188,6 +115,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="produto.controller.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            popularTabelaProdutos();
+        });
+    </script>
 </body>
 
 </html>
