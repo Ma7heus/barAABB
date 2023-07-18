@@ -1,10 +1,10 @@
-const URL = 'http://localhost:8090/baraabbAPI/api/v1/produto';
+const caminhoApi = 'http://localhost:8090/baraabbAPI/api/v1/produto';
 
 // FUNCAO QUE PREENCHE LISTAGEM
 function popularTabelaProdutos() {
   const tableProdutos = document.getElementById('table_produtos');
 
-  getProdutos()
+  getAllData()
     .then(data => {
       data.forEach(produto => {
         const row = tableProdutos.insertRow();
@@ -16,22 +16,22 @@ function popularTabelaProdutos() {
         descricaoCell.textContent = produto.descricao;
 
         const precoCompraCell = row.insertCell();
-        precoCompraCell.textContent = produto.precoCompra;
+        precoCompraCell.textContent = 'R$ ' + produto.precoCompra;
 
         const precoVendaCell = row.insertCell();
-        precoVendaCell.textContent = produto.precoVenda;
+        precoVendaCell.textContent = 'R$ ' + produto.precoVenda;
 
         const qtdEstoqueCell = row.insertCell();
-        qtdEstoqueCell.textContent = produto.qtdEstoque;
+        qtdEstoqueCell.textContent = produto.quantidadeEstoque;
 
         const usuarioCadastroCell = row.insertCell();
         usuarioCadastroCell.textContent = produto.usuarioCadastro;
 
         const idCategoriaCell = row.insertCell();
-        idCategoriaCell.textContent = produto.idCategoria;
+        idCategoriaCell.textContent = produto.categoriaProduto.descricao;
 
         const dataCadastroCell = row.insertCell();
-        dataCadastroCell.textContent = new Date(produto.datacadastro).toLocaleString();
+        dataCadastroCell.textContent = new Date(produto.dataCadastro).toLocaleString();
 
         const actionCell = row.insertCell();
         const editDeleteContainer = document.createElement('div');
@@ -45,7 +45,7 @@ function popularTabelaProdutos() {
         editButton.type = 'submit';
         editButton.classList.add('btn', 'btn-info', 'btn-sm', 'text-white');
         editButton.addEventListener('click', () => {
-            iniciarEdicao(produto.idProduto);
+          iniciarEdicao(produto.idProduto);
         })
 
         const editIcon = document.createElement('span');
@@ -60,19 +60,11 @@ function popularTabelaProdutos() {
         deleteButton.type = 'submit';
         deleteButton.classList.add('btn', 'btn-danger', 'btn-sm', 'text-white');
         deleteButton.addEventListener('click', () => {
-          var idDeletar = produto.idProduto;
-          var newUrl = URL + '/' + idDeletar;
-          fetch(newUrl, {
-            method: 'DELETE'
-          })
-            .then(response => response.json())
-            .then(data => {
-              console.log(data);
-            })
-            .catch(error => {
-              console.error('Erro:', error);
-            });
-            location.reload();
+
+          var newUrl = caminhoApi + '/' + produto.idProduto;
+          deletar(newUrl);
+          location.reload();
+
         });
 
         const deleteIcon = document.createElement('span');
@@ -91,8 +83,107 @@ function popularTabelaProdutos() {
     });
 }
 
-function getProdutos() {
-  return fetch(URL)
+function cadastrar() {
+  const id = document.getElementById('inputCodigo').value;
+  const descricao = document.getElementById('inputNomeProduto').value;
+  const categoria = document.getElementById('categoriaproduto').value;
+  const preco_compra = document.getElementById('inputValCompra').value;
+  const preco_venda = document.getElementById('inputValVenda').value;
+  const quantidade_estoque = document.getElementById('inputQtd').value;
+  const usuario = document.getElementById('usuario').value;
+
+  const data = {
+    descricao: descricao,
+    categoria: categoria,
+    preco_compra: preco_compra,
+    preco_venda: preco_venda,
+    quantidade_estoque: quantidade_estoque,
+    usuario: usuario
+  };
+
+  if (id.length !== 0) {
+    data.idProduto = id,
+      update(data);
+  } else {
+    data.datacadastro = new Date();
+    salvarNovo(data);
+  }
+}
+
+async function iniciarEdicao(ID) {
+  // Redirecionar para o formulário de cadastro_produto
+  window.location.href = `cadastro_produto.html?idProduto=${ID}`;
+}
+
+//PREENCHER FORMULARIO COM DADOS PARA EDITAR
+async function popularFormularioParaEditar(ID) {
+  try {
+    const produto = await getById(ID);
+    console.log(produto);
+    document.getElementById('inputCodigo').value = produto.idProduto
+    document.getElementById('inputNomeProduto').value = produto.descricao;
+    document.getElementById('categoriaproduto').value = produto.categoriaProduto;
+    document.getElementById('inputValCompra').value = produto.precoCompra;
+    document.getElementById('inputValVenda').value = produto.precoVenda;
+    document.getElementById('inputQtd').value = produto.quantidadeEstoque;
+    document.getElementById('usuario').value = produto.usuarioCadastro;
+  } catch (error) {
+    console.error('Erro:', error);
+  }
+}
+
+function setUpDados() {
+  console.log('SETANDO DADOS');
+
+
+  // var teste = buscarCategorias('http://localhost:8090/baraabbAPI/api/v1/categoriaproduto')
+  // console.log(teste);
+
+  var categorias = ['1', '2', '3'];
+
+  console.log(categorias);
+  // Obtém uma referência ao elemento select
+  var selectCliente = document.getElementById('categoriaproduto');
+
+  // Itera sobre a lista de clientes
+  categorias.forEach(function (cliente) {
+    // Cria um elemento de opção para cada cliente
+    var option = document.createElement('option');
+    option.textContent = cliente;
+
+    // Adiciona a opção ao select
+    selectCliente.appendChild(option);
+  });
+
+}
+
+function mostrarSelecionado() {
+
+  var select = document.getElementById('categoriaproduto');
+  var Selecionado = select.value;
+
+  console.log(Selecionado);
+
+}
+
+function buscarCategorias(path){
+  fetch(path)
+    .then(response => response.json())
+    .then(data => {
+      return data;
+    })
+    .catch(error => {
+      console.error('Ocorreu um erro:', error);
+    });
+}
+
+
+/**
+ * METODOS GENERICOS
+ */
+
+function getAllData() {
+  return fetch(caminhoApi)
     .then(response => {
       if (!response.ok) {
         throw new Error('Erro na solicitação da API.');
@@ -107,23 +198,23 @@ function getProdutos() {
     });
 }
 
-function cadastrar() {
-  const descricao = document.getElementById('inputNomeProduto').value;
-  const categoria = document.getElementById('inputCategoriaProduto').value;
-  const preco_compra = document.getElementById('inputValCompra').value;
-  const preco_venda = document.getElementById('inputValVenda').value;
-  const quantidade_estoque = document.getElementById('inputQtd').value;
-  const usuario = document.getElementById('inputUser').value;
+async function getById(ID) {
+  const newUrl = `${caminhoApi}/${ID}`;
+  try {
+    const response = await fetch(newUrl);
+    if (!response.ok) {
+      throw new Error('Erro na solicitação da API.');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Erro:', error);
+    throw error;
+  }
+}
 
-  const data = {
-    descricao: descricao,
-    categoria: categoria,
-    preco_compra: preco_compra,
-    preco_venda: preco_venda,
-    quantidade_estoque: quantidade_estoque,
-    usuario: usuario
-  };
-  fetch(URL, {
+function salvarNovo(data) {
+  fetch(caminhoApi, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -139,43 +230,33 @@ function cadastrar() {
     });
 }
 
-async function iniciarEdicao(ID) {
-  // Redirecionar para o formulário de cadastro_produto
-  window.location.href = `cadastro_produto.html?idProduto=${ID}`;
+function deletar(newUrl) {
+  fetch(newUrl, {
+    method: 'DELETE'
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Erro:', error);
+    });
 }
 
-//PREENCHER FORMULARIO COM DADOS PARA EDITAR
-async function popularFormularioParaEditar(ID){
-  try {
-    const produto = await getById(ID);
-    // Preencher o formulário com os dados do produto para edição
-    document.getElementById('inputNomeProduto').value;
-    document.getElementById('inputCategoriaProduto').value;
-    document.getElementById('inputValCompra').value;
-    document.getElementById('inputValVenda').value;
-    document.getElementById('inputQtd').value;
-    document.getElementById('inputUser').value;
-  } catch (error) {
-    console.error('Erro:', error);
-  }
+function update(data) {
+  fetch(caminhoApi, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Erro:', error);
+    });
 }
-
-//BUSCAR POR ID
-async function getById(ID) {
-  const newUrl = `${URL}/${ID}`;
-  try {
-    const response = await fetch(newUrl);
-    if (!response.ok) {
-      throw new Error('Erro na solicitação da API.');
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Erro:', error);
-    throw error;
-  }
-}
-
-
-
 
