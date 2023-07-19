@@ -61,3 +61,15 @@ window.getData = async function(url) {
       });
   }
   
+  function getObjectType(object, type) {
+    switch (type) {
+      case 'cliente':
+        return object.nome;     
+      
+        case 'usuario':
+        return object.login; 
+      
+      default:
+        return object.descricao
+    }
+  }
