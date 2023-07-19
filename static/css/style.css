@@ -140,7 +140,7 @@ body {
     gap: 5px;
 }
 
-/* Estilos específicos página de Cadastro de Produtos */
+/* Estilos específicos página de Cadastro de Categoria de Produtos */
 .categoria-container {
     max-width: 500px; 
     margin: 0 auto;
@@ -158,4 +158,89 @@ body {
     border-radius: 5px;
     background-color: #f8f9fa;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos específicos página 'Sobre' */
+.custom-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.divider {
+border-top: 1px solid #e9ecef;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.divider > h2 {
+color: #38405c;
+font-weight: bold;
+}
+
+/* Estilos específicos página de Criação de Conta */
+.button-container-novo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.button-container-novo .btn {
+    width: 150px; 
+    margin-left: 10px; 
+    align-self: flex-end;
+}
+
+/* Estilos específicos página de Consulta de Clientes */
+.btn-cont {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.btn-cont .btn {
+    width: 110px; 
+    align-self: flex-end;
+}
+
+.filtro-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    gap: 15px;
+}
+
+.edit-delete-container {  
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-delete-container .btn {
+    flex: 0 0 auto;
+    width: 50px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos específicos página de Vendas */
+.formvenda-container {
+    max-width: 500px; 
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.listaprod-container { 
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
 }

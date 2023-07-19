@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>barAABB</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="clientesDropdown">
                         <a class="dropdown-item" href="cadastro_cliente.html">Cadastrar</a>
-                        <a class="dropdown-item" href="#">Consultar</a>
+                        <a class="dropdown-item" href="consulta_clientes.html">Consultar</a>
                         <a class="dropdown-item" href="#">Registrar fiado</a>
                     </div>
                 </li>
@@ -30,8 +30,8 @@
                         Cadastrar
                     </a>
                     <div class="dropdown-menu" aria-labelledby="cadastrarDropdown">
-                        <a class="dropdown-item" href="cadastro_produto.html">Produtos</a>
-                        <a class="dropdown-item" href="cadastro_categoria.html">Categorias</a>
+                        <a class="dropdown-item" href="consulta_produtos.html">Produtos</a>
+                        <a class="dropdown-item" href="consulta_categoria.html">Categorias</a>
                         <a class="dropdown-item" href="cadastro_usuario.html">Usuários</a>
                     </div>
                 </li>
@@ -46,10 +46,10 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Vendas</a>
+                    <a class="nav-link" href="venda_diaria.html">Vendas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sobre</a>
+                    <a class="nav-link" href="sobre.html">Sobre</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -57,55 +57,32 @@
                     <a class="nav-link" href="login.html">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Criar conta</a>
+                    <a class="nav-link" href="criar_conta.html">Criar conta</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <div class="container my-5">
-        <div class="produto-container shadow rounded p-4 mx-auto">
+        <h2 class="text-left">Login</h2>
+        <p class="text-left">Efetue seu login para acessar as demais funcionalidades do sistema</p>
+        <hr class="my-4">
+        <div class="login-container shadow rounded p-4 mx-auto">
+            <h2 class="text-center">Acesse sua conta</h2>
             <form>
-                <h2 class="text-center">Cadastro de Produto</h2>
-                <div class="form-group flex-fill">
-                    <label for="inputNomeProduto">Nome do produto:</label>
-                    <input type="text" class="form-control" id="inputNomeProduto">
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Digite seu email">
                 </div>
                 <div class="form-group">
-                    <label for="selectCategoria">Categoria:</label>
-                    <select class="form-control" id="selectCategoria">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-                <div class="d-flex f3">
-                    <div class="flex-fill form-group">
-                        <label for="inputValCompra">Preço Compra:</label>
-                        <input type="number" class="form-control" id="inputValCompra">
-                    </div>
-                    <div class="flex-fill form-group">
-                        <label for="inputValVenda">Preço Venda:</label>
-                        <input type="number" class="form-control" id="inputValVenda">
-                    </div>
-                    <div class="flex-fill form-group">
-                        <label for="inputQtd">Quantidade disponível:</label>
-                        <input type="number" class="form-control" id="inputQtd">
-                    </div>
+                    <label for="password"><i class="fas fa-lock"></i> Senha:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
                 </div>
-                <div class="form-group">
-                    <label for="inputUser">Usuário:</label>
-                    <input type="number" class="form-control" id="inputUser">
-                </div>
-                <div class="container button-container">
-                    <button type="button" class="btn btn-secondary btn-block text-white">Cancelar</button>
-                    <button type="submit" class="btn btn-warning btn-block text-white">Cadastrar</button>
-                </div>
+                <button type="submit" class="btn btn-warning btn-block text-white">Entrar</button>
             </form>
         </div>
     </div>
+
 
     <footer class="footer mt-5">
         <div class="container">
