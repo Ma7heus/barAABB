@@ -1,4 +1,16 @@
+/**************************
+ **VARIAVEIS OBRIGATORIAS**
+ * @model
+ * @caminhoApi
+ **************************/
+
 const caminhoApi = 'http://localhost:8090/baraabbAPI/api/v1/produto';
+var model = {};
+
+var urlCategoria = 'http://localhost:8090/baraabbAPI/api/v1/categoriaproduto';
+var urlUsuario = 'http://localhost:8090/baraabbAPI/api/v1/usuario';
+
+
 
 // FUNCAO QUE PREENCHE LISTAGEM
 function popularTabelaProdutos() {
@@ -25,7 +37,7 @@ function popularTabelaProdutos() {
         qtdEstoqueCell.textContent = produto.quantidadeEstoque;
 
         const usuarioCadastroCell = row.insertCell();
-        usuarioCadastroCell.textContent = produto.usuarioCadastro;
+        usuarioCadastroCell.textContent = produto.usuarioCadastro.login;
 
         const idCategoriaCell = row.insertCell();
         idCategoriaCell.textContent = produto.categoriaProduto.descricao;
@@ -85,28 +97,24 @@ function popularTabelaProdutos() {
 
 function cadastrar() {
   const id = document.getElementById('inputCodigo').value;
-  const descricao = document.getElementById('inputNomeProduto').value;
-  const categoria = document.getElementById('categoriaproduto').value;
+  const input_descricao = document.getElementById('inputNomeProduto').value;
   const preco_compra = document.getElementById('inputValCompra').value;
   const preco_venda = document.getElementById('inputValVenda').value;
   const quantidade_estoque = document.getElementById('inputQtd').value;
-  const usuario = document.getElementById('usuario').value;
 
-  const data = {
-    descricao: descricao,
-    categoria: categoria,
-    precoCompra: preco_compra,
-    precoVenda: preco_venda,
-    quantidadeEstoque: quantidade_estoque,
-    usuario: usuario
-  };
+  //preenchendo model
+  model.descricao = input_descricao;
+  model.precoCompra = preco_compra;
+  model.precoVenda = preco_venda
+  model.quantidadeEstoque = quantidade_estoque
+
 
   if (id.length !== 0) {
-      data.idProduto = id,
-      update(data);
+    model.idProduto = id,
+    update(model);
   } else {
-    data.datacadastro = new Date();
-    salvarNovo(data);
+    model.datacadastro = new Date();
+    salvarNovo(model);
   }
 }
 
@@ -118,68 +126,45 @@ async function iniciarEdicao(ID) {
 //PREENCHER FORMULARIO COM DADOS PARA EDITAR
 async function popularFormularioParaEditar(ID) {
   try {
-    const produto = await getById(ID);
-    console.log(produto);
-    document.getElementById('inputCodigo').value = produto.idProduto
-    document.getElementById('inputNomeProduto').value = produto.descricao;
-    document.getElementById('categoriaproduto').value = produto.categoriaProduto;
-    document.getElementById('inputValCompra').value = produto.precoCompra;
-    document.getElementById('inputValVenda').value = produto.precoVenda;
-    document.getElementById('inputQtd').value = produto.quantidadeEstoque;
-    document.getElementById('usuario').value = produto.usuarioCadastro;
+    model = await getById(caminhoApi, ID);
+
+    document.getElementById('inputCodigo').value = model.idProduto
+    document.getElementById('inputNomeProduto').value = model.descricao;
+    document.getElementById('categoriaproduto').value = model.categoriaProduto.id;
+    document.getElementById('inputValCompra').value = model.precoCompra;
+    document.getElementById('inputValVenda').value = model.precoVenda;
+    document.getElementById('inputQtd').value = model.quantidadeEstoque;
+    document.getElementById('usuario').value = model.usuarioCadastro.id;
   } catch (error) {
     console.error('Erro:', error);
   }
 }
 
 function setUpDados() {
-  console.log('SETANDO DADOS');
-
-  // var teste = buscarCategorias('http://localhost:8090/baraabbAPI/api/v1/categoriaproduto')
-  // console.log(teste);
-
-  var categorias = ['Categoria 1', 'Categoria 2', 'Categoria 3'];
-
-  console.log(categorias);
-  // Obtém uma referência ao elemento select
-  var selectCliente = document.getElementById('categoriaproduto');
-
-  // Itera sobre a lista de clientes
-  categorias.forEach(function (cliente) {
-    // Cria um elemento de opção para cada cliente
-    var option = document.createElement('option');
-    option.textContent = cliente;
-
-    // Adiciona a opção ao select
-    selectCliente.appendChild(option);
-  });
-
+  popularSeletor(urlCategoria, 'categoriaproduto', 'default');
+  popularSeletor(urlUsuario, 'usuario', 'usuario');
 }
 
-function mostrarSelecionado() {
+async function setarCategoria(idSeletor) {
 
-  var select = document.getElementById('categoriaproduto');
-  var Selecionado = select.value;
-
-  console.log(Selecionado);
-
+  var seletor = document.getElementById(idSeletor);
+  var idCategoria = seletor.value;
+  model.categoriaProduto = await getById(urlCategoria, idCategoria)
+  
 }
 
-function buscarCategorias(path){
-  fetch(path)
-    .then(response => response.json())
-    .then(data => {
-      return data;
-    })
-    .catch(error => {
-      console.error('Ocorreu um erro:', error);
-    });
+async function setarUsuario(idSeletor) {
+  var seletor = document.getElementById(idSeletor);
+  var idUsuario = seletor.value;
+
+  model.usuarioCadastro = await getById(urlUsuario, idUsuario)
+
+  console.log(model);
 }
 
-
-/**
- * METODOS GENERICOS
- */
+/*********************
+ **METODOS GENERICOS**
+ *********************/
 
 function getAllData() {
   return fetch(caminhoApi)
@@ -197,8 +182,19 @@ function getAllData() {
     });
 }
 
-async function getById(ID) {
-  const newUrl = `${caminhoApi}/${ID}`;
+function findApiData(path) {
+  return fetch(path)
+    .then(response => response.json())
+    .then(data => {
+      return data;
+    })
+    .catch(error => {
+      console.error('Ocorreu um erro:', error);
+    });
+}
+
+async function getById(urlApi,ID) {
+  const newUrl = `${urlApi}/${ID}`;
   try {
     const response = await fetch(newUrl);
     if (!response.ok) {
@@ -259,3 +255,34 @@ function update(data) {
     });
 }
 
+function popularSeletor(urlApi, idSeletor, type) {
+
+  var seletor = document.getElementById(idSeletor);
+
+  findApiData(urlApi).then(data => {
+    data.forEach(function (object) {
+
+      var option = document.createElement('option');
+      option.textContent = getObjectType(object, type);;
+      option.value = object.id;
+  
+      seletor.appendChild(option);
+    });
+  })
+  .catch(error => {
+    console.error('Ocorreu um erro:', error);
+  });
+}
+
+function getObjectType(object, type) {
+  switch (type) {
+    case 'cliente':
+      return object.nome;     
+    
+      case 'usuario':
+      return object.login; 
+    
+    default:
+      return object.descricao
+  }
+}
